@@ -31,12 +31,19 @@ The practice application is a demo application consisting all the important topi
 
 lib/
 |- Getx_manager/    (contains getX state manager file which updates the state of application)
+
 |- l10n/            (contains differebt languages translated json file)
+
 |- screens/         
+
 |- shared_preferenes/  (contains shared preference manager which give us different operations functions)
+
 |- translations/       
+
 |- utils/           (contains widgets and themes foler)
+
 |- main.dart
+
 |- routes           (contains routes of every screen)
 
 ## Screens features
