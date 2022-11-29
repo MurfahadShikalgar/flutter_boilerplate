@@ -89,6 +89,12 @@ lib/
 Ex - final GetxStateManager _controller = Get.put(GetxStateManager());
 These is how you create getx controller and you are ready to go.
 
+## Dark-Light Theme:
+
+* We have integrated change theme mode feature in these app.
+* Using a switch we can the theme of whole app. Using getX we are able to update the theme of the application smoothly.
+* We can change the theme to dark and light. And it can also take the system theme as default theme of the application.
+
 ## App Localization
 
 * Localizing the app with different languages is todays need of every applications.
