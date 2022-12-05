@@ -1,0 +1,17 @@
+{
+    "helloWorld": "Hello World!",
+    "@helloWorld": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "homescreentitle": "Home Screen",
+    "secondscreentitle": "Second Screen",
+    "thirdscreentitle": "Third Screen",
+    "yes_text": "Yes",
+    "no_text": "No",
+    "close_text": "Close",
+    "success_text": "Success",
+    "navigate_text": "Navigate",
+    "alertdialogtitle": "Alert Dialog",
+    "defaultdialogtitle": "Default Dialog",
+    "desc": "You have tapped these many time"
+}

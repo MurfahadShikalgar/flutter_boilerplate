@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,6 +6,14 @@ import 'package:get/get.dart';
 class GetxStateManager extends GetxController {
   final count = 0.obs;
   bool themeStatus = false;
+  final preferenceData = "".obs;
+
+
+
+  void updatePreferenceData(var value) {
+    preferenceData(value);
+    print(preferenceData);
+  }
 
   void increment() {
     count.value++;
@@ -25,5 +33,4 @@ class GetxStateManager extends GetxController {
     }
     update();
   }
-  
 }
