@@ -12,6 +12,8 @@ The practice application is a demo application consisting all the important topi
 * Home Screen
 * Second Screen (to set data in shared preference)
 * Third Screen (to retrive data from shared preference) 
+* Data Screen  (to display graphQL data)
+* Detail Screen(to display graphQl passed data)
 * Getx (State Management)
 * Shared Preference (for managing data storage using shared prefernce operations)
 * Dark- light Theme
@@ -26,11 +28,14 @@ The practice application is a demo application consisting all the important topi
 * Shared Preferences
 * Flutter Localizations
 * Intl
+* GraphQL flutter
 
 ## Folder Structure
 
 lib/
 |- Getx_manager/    (contains getX state manager file which updates the state of application)
+
+|- GraphQL/         (contains quieries, mutation and graphql configuration files
 
 |- l10n/            (contains differebt languages translated json file)
 
@@ -125,3 +130,14 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## GraphQL
+
+* It is a graphQL Api folder which contains modals, queries, mutation and config files of graphQL.
+* Queries contains the final query which will be needed to read the data.
+* Mutation file contains the mutations which will be needed to update, delete and create the data.
+* GraphQl config contains the graphQl cofigurations which help to connect the application to the graphQL server.
+* We also need to create a Getx manager to manage the state of graphQl Api calls. These file is created in Getx_state_manager folder.
+* Modals contains the structure model of the fetched data in json format. These helps to access the functionalities of Api quickly and easily.
+* To make the modal file we have used https://javiercbk.github.io/json_to_dart/ website. Here we have to just paste the fetched data and it give use the modal as output in dart format.
+
