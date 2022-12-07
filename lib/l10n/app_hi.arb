@@ -1,0 +1,17 @@
+{
+    "helloWorld": "हैलो वर्ल्ड!",
+    "@helloWorld": {
+      "description": "पारंपरिक नवजात प्रोग्रामर अभिवादन"
+    },
+    "homescreentitle": "होम स्क्रीन",
+    "secondscreentitle": "दूसरी स्क्रीन",
+    "thirdscreentitle": "तीसरी स्क्रीन",
+    "yes_text": "हाँ",
+    "no_text": "नहीं",
+    "close_text": "बंद",
+    "success_text": "सफलता",
+    "navigate_text": "अगला",
+    "alertdialogtitle": "चेतावनी संवाद",
+    "defaultdialogtitle": "चूक संवाद",
+    "desc": "आपने इन्हें कई बार टैप किया है"
+}
