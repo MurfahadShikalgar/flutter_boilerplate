@@ -29,6 +29,7 @@ The practice application is a demo application consisting all the important topi
 * Flutter Localizations
 * Intl
 * GraphQL flutter
+* connectivity
 
 ## Folder Structure
 
@@ -46,6 +47,8 @@ lib/
 |- translations/       
 
 |- utils/           (contains widgets and themes foler)
+
+|- utils/network    (contains getX network manager and network binding file)
 
 |- main.dart
 
@@ -140,4 +143,10 @@ samples, guidance on mobile development, and a full API reference.
 * We also need to create a Getx manager to manage the state of graphQl Api calls. These file is created in Getx_state_manager folder.
 * Modals contains the structure model of the fetched data in json format. These helps to access the functionalities of Api quickly and easily.
 * To make the modal file we have used https://javiercbk.github.io/json_to_dart/ website. Here we have to just paste the fetched data and it give use the modal as output in dart format.
+
+## Network
+
+* These folder contains getX Network Manager which helps to get the connection type, update the connection type and to constantly liste to change in network with the help od StreamSubscription.
+* Network binding file help us to bind the getX_network_manager to GetMaterialApp() in main.dart. It binds getx_network_manager file using initial binding in main.dart.
+* Due to streamSubscription and initial binding of network file we can constantly listen to the changes in network.
 
