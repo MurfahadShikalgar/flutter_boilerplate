@@ -1,7 +1,6 @@
 // ignore_for_file: must_call_super, prefer_typing_uninitialized_variables, non_constant_identifier_names, avoid_print
 
 import 'dart:async';
-
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';

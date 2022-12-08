@@ -11,7 +11,7 @@ import '../GraphQl/queries/query.dart';
 
 class ApiServiceManager extends GetxController {
   List<AllProductData> allProductList = [];
-  bool isLoading = false;
+  bool isLoading = true;
 
   Future getAllProductsData(BuildContext context) async {
     GraphQLClient client = GraphQlConfig().clientToQuery();
@@ -22,18 +22,17 @@ class ApiServiceManager extends GetxController {
       ),
     );
     if (result.hasException == true) {
+      isLoading = false;
+      update();
       return ShowDialogs().CustomDialog(
           context, "Error", result.exception.toString(), "Reload", () {
         getAllProductsData(context);
       });
-    } else if (result.isLoading == true) {
+    } else if (result.data != null) {
       isLoading = true;
-      update();
-    } else if (result.isNotLoading == true) {
-      isLoading = false;
+      allProductList =
+          AllProductsModel.fromJson(result.data!['products']).edges!;
       update();
     }
-    allProductList = AllProductsModel.fromJson(result.data!['products']).edges!;
-    update();
   }
 }

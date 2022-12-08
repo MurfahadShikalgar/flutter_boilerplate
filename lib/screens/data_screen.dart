@@ -25,9 +25,7 @@ class _DataScreenState extends State<DataScreen> {
     super.initState();
     if(mounted){
       _apiController.getAllProductsData(context);
-      setState(() {
-        
-      });
+      //setState(() {});
     }
   }
 
@@ -74,6 +72,9 @@ class _DataScreenState extends State<DataScreen> {
                                 SizedBox(
                                   height: _helpers.getHeight(context) * 0.4,
                                 ),
+                                _apiController.isLoading == true ?
+                                const CircularProgressIndicator()
+                                :
                                 CustomButton(
                                   height: _helpers.getHeight(context) * 0.06, 
                                   width: _helpers.getWidth(context) * 0.2, 

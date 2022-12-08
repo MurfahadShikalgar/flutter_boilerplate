@@ -2,15 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:practice_application/Getx_Manager/getx_network_manager.dart';
 import 'package:practice_application/GraphQl/modals/all_products_model.dart';
-import 'package:practice_application/utils/helpers.dart';
 
 class DetailsScreen extends StatelessWidget {
-  DetailsScreen({super.key});
+  const DetailsScreen({super.key});
   static const String routeName = "/detailsscreen";
-  final GetXNetworkManager _getXNetworkManager = GetXNetworkManager();
-  final Helpers _helpers = Helpers();
   @override
   Widget build(BuildContext context) {
     ProductData data = Get.arguments;
@@ -23,22 +19,6 @@ class DetailsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            GetBuilder<GetXNetworkManager>(
-              builder: (_) {
-                return _getXNetworkManager.connectionType == "No Internet"
-                    ? Container(
-                        width: _helpers.getWidth(context),
-                        color: Colors.red,
-                        child: Center(
-                          child: Text(
-                            _getXNetworkManager.connectionType,
-                            style: const TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      )
-                    : const Text("");
-              },
-            ),
             ListTile(
               title: const Text("Title :"),
               subtitle: Text(data.name.toString()),
