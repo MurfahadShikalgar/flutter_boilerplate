@@ -3,9 +3,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:practice_application/utils/constants/app_constants.dart';
 
 class GraphQlConfig {
-  static HttpLink httpLink = HttpLink("https://demo.saleor.io/graphql/");
+  static HttpLink httpLink = HttpLink(AppConstants.productsApi);
 
   ValueNotifier<GraphQLClient> client =
       ValueNotifier(

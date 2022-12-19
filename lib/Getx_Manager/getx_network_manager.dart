@@ -7,9 +7,8 @@ import 'package:get/get.dart';
 
 class GetXNetworkManager extends GetxController {
   String connectionType = "No Internet";
-  //Instance of Flutter Connectivity
   final Connectivity _connectivity = Connectivity();
-  //Stream to keep listening to network change state
+
   late StreamSubscription _streamSubscription;
   @override
   void onInit() {
@@ -18,7 +17,6 @@ class GetXNetworkManager extends GetxController {
         _connectivity.onConnectivityChanged.listen(_updateState);
   }
 
-  // a method to get which connection result, if you we connected to internet or no if yes then which network
   Future<void> GetConnectionType() async {
     var connectivityResult;
     try {
@@ -29,8 +27,6 @@ class GetXNetworkManager extends GetxController {
     return _updateState(connectivityResult);
   }
 
-  // state update, of network, if you are connected to WIFI connectionType will get set to 1,
-  // and update the state to the consumer of that variable.
   _updateState(ConnectivityResult result) {
     switch (result) {
       case ConnectivityResult.wifi:

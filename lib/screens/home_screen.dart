@@ -6,6 +6,7 @@ import 'package:practice_application/main.dart';
 import 'package:practice_application/screens/second_screen.dart';
 import 'package:practice_application/translations/language_list.dart';
 import 'package:practice_application/translations/language_constants.dart';
+import 'package:practice_application/utils/constants/app_constants.dart';
 import 'package:practice_application/utils/helpers.dart';
 import 'package:practice_application/utils/widgets/dialog_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -105,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 30,
             ),
             Text(
-              translation.desc,
+              AppConstants.RESULT_TITLE,
             ),
             Obx(() => Text(
                   controller.count.toString(),
