@@ -149,3 +149,7 @@ samples, guidance on mobile development, and a full API reference.
 * These folder contains getX Network Manager which helps to get the connection type, update the connection type and to constantly liste to change in network with the help od StreamSubscription.
 * Network binding file help us to bind the getX_network_manager to GetMaterialApp() in main.dart. It binds getx_network_manager file using initial binding in main.dart.
 * Due to streamSubscription and initial binding of network file we can constantly listen to the changes in network.
+<<<<<<< HEAD
+=======
+
+>>>>>>> d2b86c345e135e321edca253dc32ea87661e0416
