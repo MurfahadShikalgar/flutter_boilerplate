@@ -22,7 +22,7 @@ class SecondScreen extends StatelessWidget {
   var translation = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(translation!.secondscreentitle),
+        title: Text(translation!.secondscreen),
       ),
       body: Center(
         child: Padding(
@@ -109,7 +109,7 @@ class SecondScreen extends StatelessWidget {
                   onPressed: () {
                     Get.toNamed(ThirdScreen.routeName);
                   },
-                  child: Text("${translation.navigate_text} ${translation.thirdscreentitle}"))
+                  child: Text("${translation.navigate} ${translation.thirdscreen}"))
             ],
           ),
         ),

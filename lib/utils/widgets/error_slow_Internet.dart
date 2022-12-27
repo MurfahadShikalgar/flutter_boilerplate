@@ -2,12 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:practice_application/utils/constants/app_constants.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../helpers.dart';
 
 // ignore: non_constant_identifier_names
-ShowSlowInternetDialog(BuildContext context) {
+ShowSlowInternetDialog(BuildContext context, Function onPressed) {
   Helpers helper = Helpers();
+  var translation = AppLocalizations.of(context);
   return showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -26,15 +27,15 @@ ShowSlowInternetDialog(BuildContext context) {
                     Icons.network_check_outlined,
                     size: 60,
                   ),
-                  const Text(
-                    AppConstants.slowInternet,
+                  Text(
+                    translation!.slowInternet,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  const Text(
-                    AppConstants.slowInternetDesc,
+                  Text(
+                    translation.slowInternetDesc,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -46,12 +47,10 @@ ShowSlowInternetDialog(BuildContext context) {
                     color: Colors.blue,
                   ),
                   TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Text(
-                        AppConstants.OK,
-                        style: TextStyle(color: Colors.blue, fontSize: 16),
+                      onPressed: onPressed(),
+                      child: Text(
+                        translation.ok,
+                        style: const TextStyle(color: Colors.blue, fontSize: 16),
                       )),
                 ],
               ),

@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
     var translation = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(translation!.homescreentitle),
+        title: Text(translation!.homescreen),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -101,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Get.toNamed(SecondScreen.routeName);
                 },
                 child: Text(
-                    "${translation.navigate_text} ${translation.secondscreentitle}")),
+                    "${translation.navigate} ${translation.secondscreen}")),
             const SizedBox(
               height: 30,
             ),

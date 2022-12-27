@@ -1,12 +1,13 @@
-// ignore_for_file: non_constant_identifier_names, file_names
+// ignore_for_file: non_constant_identifier_names, file_names, use_build_context_synchronously, no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
 import 'package:practice_application/utils/constants/app_constants.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../helpers.dart';
 
-ShowNoInternetDialog(BuildContext context) {
+ShowNoInternetDialog(BuildContext context, Function onPressed) {
   Helpers helper = Helpers();
+  var translation = AppLocalizations.of(context);
   return showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -25,8 +26,8 @@ ShowNoInternetDialog(BuildContext context) {
                     Icons.wifi_off_outlined,
                     size: 60,
                   ),
-                  const Text(
-                    AppConstants.noInternet,
+                  Text(
+                    translation!.noInternet,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -45,12 +46,10 @@ ShowNoInternetDialog(BuildContext context) {
                     color: Colors.blue,
                   ),
                   TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Text(
-                        AppConstants.OK,
-                        style: TextStyle(color: Colors.blue, fontSize: 16),
+                      onPressed: (() => onPressed()),
+                      child: Text(
+                        translation.ok,
+                        style: const TextStyle(color: Colors.blue, fontSize: 16),
                       )),
                 ],
               ),

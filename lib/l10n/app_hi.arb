@@ -1,17 +1,30 @@
 {
-    "helloWorld": "हैलो वर्ल्ड!",
+    "helloWorld": "Hello World!",
     "@helloWorld": {
-      "description": "पारंपरिक नवजात प्रोग्रामर अभिवादन"
+      "description": "The conventional newborn programmer greeting"
     },
-    "homescreentitle": "होम स्क्रीन",
-    "secondscreentitle": "दूसरी स्क्रीन",
-    "thirdscreentitle": "तीसरी स्क्रीन",
-    "yes_text": "हाँ",
-    "no_text": "नहीं",
-    "close_text": "बंद",
-    "success_text": "सफलता",
-    "navigate_text": "अगला",
+    "homescreen": "होम स्क्रीन",
+    "secondscreen": "दूसरी स्क्रीन",
+    "thirdscreen": "तीसरी स्क्रीन",
+    "datascreen": "डेटा स्क्रीन",
+    "detailscreen": "विवरण स्क्रीन",
+    "ok": "Ok",
+    "yes": "हाँ",
+    "no": "नहीं",
+    "close": "बंद",
+    "retry": "पुन: प्रयास करें",
+    "reload": "पुनः लोड करें",
+    "success": "सफलता",
+    "navigate": "अगला",
     "alertdialogtitle": "चेतावनी संवाद",
     "defaultdialogtitle": "चूक संवाद",
-    "desc": "आपने इन्हें कई बार टैप किया है"
+    "resultTitle": "आपने इन्हें कई बार टैप किया है",
+    "error": "गलती",
+    "error404": "त्रुटि 404",
+    "noInternet": "इंटरनेट नहीं है",
+    "slowInternet": "धीरे इंटरनेट",
+    "errorDesc": "प्रोग्राम को क्रियान्वित करते समय एक त्रुटि हुई है",
+    "error404Desc": "सर्वर अनुरोधित संसाधन नहीं ढूँढ सकता",
+    "noInternetDesc": "अपने इंटरनेट कनेक्शन की जाँच करें और पुनः प्रयास करें",
+    "slowInternetDesc": "आपका इंटरनेट कनेक्शन धीमा है"
 }

@@ -1,11 +1,14 @@
-// ignore_for_file: non_constant_identifier_names, no_leading_underscores_for_local_identifiers
+// ignore_for_file: non_constant_identifier_names, no_leading_underscores_for_local_identifiers, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:practice_application/utils/constants/app_constants.dart';
 import 'package:practice_application/utils/helpers.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-ShowError404Dialog(BuildContext context) {
+
+ShowError404Dialog(BuildContext context, Function onReload) {
   Helpers _helper = Helpers();
+  var translation = AppLocalizations.of(context);
   return showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -24,15 +27,15 @@ ShowError404Dialog(BuildContext context) {
                     Icons.cancel,
                     size: 60,
                   ),
-                  const Text(
-                    AppConstants.error404,
+                  Text(
+                    translation!.error404,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
                     height: 5,
                   ),
-                  const Text(
-                    AppConstants.error404Desc,
+                  Text(
+                    translation.error404Desc,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -44,12 +47,14 @@ ShowError404Dialog(BuildContext context) {
                     color: Colors.blue,
                   ),
                   TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Text(
-                        AppConstants.RELOAD,
-                        style: TextStyle(color: Colors.blue, fontSize: 16),
+                      // onPressed: () async {
+                      //   //await _apiController.getAllProductsData(context);
+                      //   Navigator.pop(context);
+                      // },
+                      onPressed: onReload(),
+                      child: Text(
+                        translation.reload,
+                        style: const TextStyle(color: Colors.blue, fontSize: 16),
                       )),
                 ],
               ),
