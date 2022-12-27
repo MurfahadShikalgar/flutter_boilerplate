@@ -13,7 +13,7 @@ class ShowDialogs {
         content: Text(content),
         actions: [
           TextButton(
-              onPressed: () => Get.back(), child: Text(translation!.close_text))
+              onPressed: () => Get.back(), child: Text(translation!.close))
         ],
       ),
     );
@@ -25,8 +25,8 @@ class ShowDialogs {
     return Get.defaultDialog(
       title: title,
       content: Text(content),
-      textConfirm: translation!.yes_text,
-      textCancel: translation.no_text,
+      textConfirm: translation!.yes,
+      textCancel: translation.no,
       onConfirm: (() {
         Get.back(canPop: true);
         onConfirm();
@@ -42,7 +42,7 @@ class ShowDialogs {
       title: title,
       content: Text(content),
       textConfirm: buttonText,
-      textCancel: translation!.no_text,
+      textCancel: translation!.no,
       onConfirm: (() {
         Get.back(canPop: true);
         onConfirm();

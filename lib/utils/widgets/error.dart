@@ -3,9 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:practice_application/utils/constants/app_constants.dart';
 import 'package:practice_application/utils/helpers.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-ShowErrorDialog(BuildContext context) {
+ShowErrorDialog(BuildContext context, Function onRetry) {
   Helpers _helper = Helpers();
+  var translation = AppLocalizations.of(context);
   return showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -24,15 +26,15 @@ ShowErrorDialog(BuildContext context) {
                     Icons.cancel,
                     size: 60,
                   ),
-                  const Text(
-                    AppConstants.error,
+                  Text(
+                    translation!.error,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
                     height: 5,
                   ),
-                  const Text(
-                    AppConstants.errorDesc,
+                  Text(
+                    translation.errorDesc,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -47,12 +49,15 @@ ShowErrorDialog(BuildContext context) {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: const Text(
-                            AppConstants.RETRY,
-                            style: TextStyle(color: Colors.blue, fontSize: 16),
+                          // onPressed: () async {
+                          //   // await _apiController
+                          //   //     .getAllProductsData(context)
+                          //   //     .whenComplete(() => Navigator.pop(context));
+                          // },
+                          onPressed: () => onRetry(),
+                          child: Text(
+                            translation.retry,
+                            style: const TextStyle(color: Colors.blue, fontSize: 16),
                           )),
                       Container(
                         height: _helper.getHeight(context) * 0.03,
@@ -61,9 +66,9 @@ ShowErrorDialog(BuildContext context) {
                       ),
                       TextButton(
                           onPressed: () => Navigator.pop(context),
-                          child: const Text(
-                            AppConstants.CLOSE,
-                            style: TextStyle(color: Colors.blue, fontSize: 16),
+                          child: Text(
+                            translation.close,
+                            style: const TextStyle(color: Colors.blue, fontSize: 16),
                           ))
                     ],
                   ),
