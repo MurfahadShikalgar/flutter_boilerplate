@@ -2,11 +2,11 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:practice_application/utils/constants/app_constants.dart';
 
 class GraphQlConfig {
-  static HttpLink httpLink = HttpLink(AppConstants.productsApi);
+  static HttpLink httpLink = HttpLink(dotenv.env['PRODUCT_API'].toString());
 
   ValueNotifier<GraphQLClient> client =
       ValueNotifier(

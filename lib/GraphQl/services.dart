@@ -6,18 +6,21 @@ import 'package:practice_application/GraphQl/graphQl_config.dart';
 import 'package:practice_application/GraphQl/queries/query.dart';
 
 class ApiService {
-
   Future<QueryResult<Object?>> fetchAllProductData(BuildContext context) async {
     GraphQLClient client = GraphQlConfig().clientToQuery();
-    QueryResult result = await client.query(
+    QueryResult result = await client
+        .query(
       QueryOptions(
         document: gql(allProductsQuery),
         fetchPolicy: FetchPolicy.noCache,
       ),
-    );
+    )
+    .timeout(Duration(seconds: 6), onTimeout: (() {
+      print("Session Timeout");
+      return QueryResult.unexecuted;
+    }));
     return result;
   }
-  
 }
 
 

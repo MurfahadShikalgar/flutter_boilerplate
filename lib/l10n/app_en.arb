@@ -23,8 +23,8 @@
     "error404": "Error 404",
     "noInternet": "No Internet",
     "slowInternet": "Slow Internet",
-    "errorDesc": "There is an error occured while executing the program",
-    "error404Desc": "The server cannot find the requested resource",
-    "noInternetDesc": "Check your Internet connection and try again",
+    "errorDesc": "There is an error occured while executing the program. So Please retry.",
+    "error404Desc": "The server cannot find the requested resource. Try Reloading the Data Again.",
+    "noInternetDesc": "Check your Internet connection. Enable the data and Try Again.",
     "slowInternetDesc": "You have Slow Internet Connection"
 }

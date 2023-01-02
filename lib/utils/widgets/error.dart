@@ -1,7 +1,6 @@
 // ignore_for_file: non_constant_identifier_names, no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
-import 'package:practice_application/utils/constants/app_constants.dart';
 import 'package:practice_application/utils/helpers.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
