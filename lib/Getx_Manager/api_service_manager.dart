@@ -3,19 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:practice_application/Getx_Manager/getx_network_manager.dart';
 import 'package:practice_application/GraphQl/modals/all_products_model.dart';
 import 'package:practice_application/GraphQl/services.dart';
-import 'package:practice_application/utils/constants/app_constants.dart';
 
 class ApiServiceManager extends GetxController {
   List<AllProductData> allProductList = [];
   bool isLoading = false;
-
-  void stopLoading() {
-    isLoading = false;
-    update();
-  }
 
   Future<bool> getAllProductsData(BuildContext context) async {
     isLoading = true;
@@ -35,6 +28,7 @@ class ApiServiceManager extends GetxController {
         return true;
       }
     } else {
+      print(result.exception);
       Future.delayed(const Duration(seconds: 1), () {
         isLoading = false;
         update();

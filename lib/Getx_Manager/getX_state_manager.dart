@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class GetxStateManager extends GetxController {
   final count = 0.obs;
-  bool themeStatus = false;
+  bool themeStatus = true;
   final preferenceData = "".obs;
 
 

@@ -16,7 +16,7 @@ import 'package:practice_application/screens/third_screen.dart';
 
     GetPage(
       name: DetailsScreen.routeName, 
-      page: ()=> const DetailsScreen(),
+      page: ()=> DetailsScreen(),
     ),
 
     GetPage(

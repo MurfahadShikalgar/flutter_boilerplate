@@ -34,39 +34,6 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text(translation!.homescreen),
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: DropdownButton<Language>(
-              underline: const SizedBox(),
-              icon: const Icon(
-                Icons.language,
-                color: Colors.white,
-              ),
-              onChanged: (Language? language) async {
-                if (language != null) {
-                  Locale locale = await setLocale(language.languageCode);
-                  MyApp.setLocale(context, locale);
-                }
-              },
-              items: Language.languageList()
-                  .map<DropdownMenuItem<Language>>(
-                    (e) => DropdownMenuItem<Language>(
-                      value: e,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          Text(
-                            e.flag,
-                            style: const TextStyle(fontSize: 30),
-                          ),
-                          Text(e.name)
-                        ],
-                      ),
-                    ),
-                  )
-                  .toList(),
-            ),
-          ),
           GetBuilder<GetxStateManager>(
             builder: (_) => Switch(
                 value: controller.themeStatus,
@@ -76,76 +43,74 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            GetBuilder<GetXNetworkManager>(
-              builder: (_) {
-                return _getXNetworkManager.connectionType == "No Internet"
-                    ? Container(
-                        width: _helpers.getWidth(context),
-                        color: Colors.red,
-                        child: Center(
-                          child: Text(
-                            _getXNetworkManager.connectionType,
-                            style: const TextStyle(color: Colors.white),
-                          ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          GetBuilder<GetXNetworkManager>(
+            builder: (_) {
+              return _getXNetworkManager.connectionType == "No Internet"
+                  ? Container(
+                      width: _helpers.getWidth(context),
+                      color: Colors.red,
+                      child: Center(
+                        child: Text(
+                          _getXNetworkManager.connectionType,
+                          style: const TextStyle(color: Colors.white),
                         ),
-                      )
-                    : const Text("");
+                      ),
+                    )
+                  : const Text("");
+            },
+          ),
+          ElevatedButton(
+              onPressed: () {
+                Get.toNamed(SecondScreen.routeName);
               },
-            ),
-            ElevatedButton(
+              child:
+                  Text("${translation.navigate} ${translation.secondscreen}")),
+          const SizedBox(
+            height: 30,
+          ),
+          Text(
+            translation.resultTitle,
+          ),
+          Obx(() => Text(
+                controller.count.toString(),
+                style: TextStyle(fontSize: 25),
+              )),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              FloatingActionButton(
                 onPressed: () {
-                  Get.toNamed(SecondScreen.routeName);
+                  controller.increment();
                 },
-                child: Text(
-                    "${translation.navigate} ${translation.secondscreen}")),
-            const SizedBox(
-              height: 30,
-            ),
-            Text(
-              AppConstants.RESULT_TITLE,
-            ),
-            Obx(() => Text(
-                  controller.count.toString(),
-                  style: TextStyle(fontSize: 25),
-                )),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                FloatingActionButton(
-                  onPressed: () {
-                    controller.increment();
-                  },
-                  tooltip: 'Increment',
-                  child: const Icon(Icons.add),
-                ),
-                FloatingActionButton(
-                  onPressed: () {
-                    controller.decrement();
-                  },
-                  tooltip: 'Decrement',
-                  child: const Icon(Icons.horizontal_rule),
-                ),
-              ],
-            ),
-            ElevatedButton(
-                onPressed: () => ShowDialogs().DialogWidget(
-                    context,
-                    translation.alertdialogtitle,
-                    "This is content of dialog box."),
-                child: Text(translation.alertdialogtitle)),
-            ElevatedButton(
-                onPressed: () => ShowDialogs().DefaultDialog(
-                    context,
-                    translation.defaultdialogtitle,
-                    "Do you want default dialog success?",
-                    () {}),
-                child: Text(translation.defaultdialogtitle))
-          ],
-        ),
+                tooltip: 'Increment',
+                child: const Icon(Icons.add),
+              ),
+              FloatingActionButton(
+                onPressed: () {
+                  controller.decrement();
+                },
+                tooltip: 'Decrement',
+                child: const Icon(Icons.horizontal_rule),
+              ),
+            ],
+          ),
+          ElevatedButton(
+              onPressed: () => ShowDialogs().DialogWidget(
+                  context,
+                  translation.alertdialogtitle,
+                  "This is content of dialog box."),
+              child: Text(translation.alertdialogtitle)),
+          ElevatedButton(
+              onPressed: () => ShowDialogs().DefaultDialog(
+                  context,
+                  translation.defaultdialogtitle,
+                  "Do you want default dialog success?",
+                  () {}),
+              child: Text(translation.defaultdialogtitle))
+        ],
       ),
     );
   }

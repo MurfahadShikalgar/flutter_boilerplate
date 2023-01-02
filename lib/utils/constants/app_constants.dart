@@ -24,14 +24,17 @@ class AppConstants {
   static const String noInternetDesc =
       "Check your Internet connection and try again";
   static const String slowInternetDesc = "You have Slow Internet Connection";
+
+  static const String envFilePath = "lib/utils/constants/.env";
+
   //API
-  static const String productsApi = "https://demo.saleor.io/graphql/";
+  //static const String productsApi = "https://demo.saleor.io/graphql/";
 
-  //ENVIRONMENTS
-  static const ENV = ENV_QA;
+  // //ENVIRONMENTS
+  // static const ENV = ENV_QA;
 
-  static const ENV_QA = "qa";
-  static const ENV_PROD = "prod";
-  static const ENV_DEV = "dev";
-  static const ENV_UAT = "uat";
+  // static const ENV_QA = "qa";
+  // static const ENV_PROD = "prod";
+  // static const ENV_DEV = "dev";
+  // static const ENV_UAT = "uat";
 }

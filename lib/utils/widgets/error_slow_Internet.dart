@@ -1,7 +1,6 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:practice_application/utils/constants/app_constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../helpers.dart';
 

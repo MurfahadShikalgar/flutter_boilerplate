@@ -1,21 +1,25 @@
 // ignore_for_file: unused_field, unused_local_variable, unrelated_type_equality_checks, use_build_context_synchronously, avoid_print
 
 import 'dart:async';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:practice_application/Getx_Manager/api_service_manager.dart';
+import 'package:practice_application/Getx_Manager/getX_state_manager.dart';
 import 'package:practice_application/Getx_Manager/getx_network_manager.dart';
 import 'package:practice_application/screens/details_screen.dart';
 import 'package:practice_application/screens/home_screen.dart';
 import 'package:practice_application/utils/constants/app_constants.dart';
 import 'package:practice_application/utils/constants/styles_constant.dart';
 import 'package:practice_application/utils/helpers.dart';
-import 'package:practice_application/utils/widgets/custom_toast.dart';
 import 'package:practice_application/utils/widgets/error404_bottomsheet.dart';
 import 'package:practice_application/utils/widgets/error_bottomsheet.dart';
 import 'package:practice_application/utils/widgets/no_internet_bottomsheet.dart';
-import '../utils/widgets/error_404.dart';
+
+import '../main.dart';
+import '../translations/language_constants.dart';
+import '../translations/language_list.dart';
 
 class DataScreen extends StatefulWidget {
   const DataScreen({super.key});
@@ -44,7 +48,7 @@ class _DataScreenState extends State<DataScreen> {
     }
   }
 
-  getProductData() {
+  void getProductData() {
     Future.delayed(const Duration(seconds: 2), () async {
       if (checkConnectivity() == false) {
         ShowNoInternetBottomSheet(context, () async {
@@ -62,7 +66,7 @@ class _DataScreenState extends State<DataScreen> {
       } else {
         bool hasError = await _apiController.getAllProductsData(context);
         if (hasError == true) {
-          ShowErrorBottomSheet(context, () async {
+          ShowError404BottomSheet(context, () async {
             //Navigator.pop(context);
             await _apiController.getAllProductsData(context);
             _apiController.allProductList.isNotEmpty
@@ -82,6 +86,7 @@ class _DataScreenState extends State<DataScreen> {
 
   final ApiServiceManager _apiController = Get.put(ApiServiceManager());
   final GetXNetworkManager _getXNetworkManager = Get.put(GetXNetworkManager());
+  final GetxStateManager controller = Get.put(GetxStateManager());
   final Helpers _helpers = Helpers();
 
   @override
@@ -94,18 +99,49 @@ class _DataScreenState extends State<DataScreen> {
           style: Styles.titleStyle,
         ),
         actions: [
-          TextButton(
-              onPressed: (() => ShowError404BottomSheet(context, () {
-                    Navigator.pop(context);
-                  })),
-              child: Text(
-                translation.error404,
-                style: const TextStyle(color: Colors.white),
-              )),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: DropdownButton<Language>(
+              underline: const SizedBox(),
+              icon: const Icon(
+                Icons.language,
+                color: Colors.white,
+              ),
+              onChanged: (Language? language) async {
+                if (language != null) {
+                  Locale locale = await setLocale(language.languageCode);
+                  MyApp.setLocale(context, locale);
+                }
+              },
+              items: Language.languageList()
+                  .map<DropdownMenuItem<Language>>(
+                    (e) => DropdownMenuItem<Language>(
+                      value: e,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: <Widget>[
+                          Text(
+                            e.flag,
+                            style: const TextStyle(fontSize: 30),
+                          ),
+                          Text(e.name)
+                        ],
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ),
+          ),
+          // TextButton(
+          //     onPressed: (() => ShowErrorBottomSheet(context, () {
+          //           Navigator.pop(context);
+          //         })),
+          //     child: Text(
+          //       translation.error,
+          //       style: const TextStyle(color: Colors.white),
+          //     )),
           IconButton(
               onPressed: () => Get.toNamed(HomeScreen.routeName),
-              // onPressed: (() =>
-              //     ShowSnackbar(context, "Custom Snackbar", Colors.green)),
               icon: const Icon(Icons.arrow_right_alt))
         ],
       ),

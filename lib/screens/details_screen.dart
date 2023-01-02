@@ -2,15 +2,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:practice_application/Getx_Manager/getX_state_manager.dart';
 import 'package:practice_application/GraphQl/modals/all_products_model.dart';
-import 'package:practice_application/translations/language_constants.dart';
-import 'package:practice_application/utils/constants/app_constants.dart';
 import 'package:practice_application/utils/constants/styles_constant.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DetailsScreen extends StatelessWidget {
-  const DetailsScreen({super.key});
+  DetailsScreen({super.key});
   static const String routeName = "/detailsscreen";
+  final GetxStateManager controller = Get.put(GetxStateManager());
   @override
   Widget build(BuildContext context) {
     ProductData data = Get.arguments;
@@ -25,13 +25,13 @@ class DetailsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             ListTile(
-              title: const Text(
+              title: Text(
                 "Title :",
-                style: Styles.detailsTitleStyle,
+                style: controller.themeStatus == false ? Styles.detailsTitleStyle : Styles.detailsTitleStyleDark,
               ),
               subtitle: Text(
                 data.name.toString(),
-                style: Styles.detailsDescStyle,
+                style: controller.themeStatus == false ? Styles.detailsDescStyle : Styles.detailsDescStyleDark,
               ),
               tileColor: Colors.black12,
             ),
@@ -39,13 +39,13 @@ class DetailsScreen extends StatelessWidget {
               height: 10,
             ),
             ListTile(
-              title: const Text(
+              title: Text(
                 "ID :",
-                style: Styles.detailsTitleStyle,
+                style: controller.themeStatus == false ? Styles.detailsTitleStyle : Styles.detailsTitleStyleDark,
               ),
               subtitle: Text(
                 data.id.toString(),
-                style: Styles.detailsDescStyle,
+                style: controller.themeStatus == false ? Styles.detailsDescStyle : Styles.detailsDescStyleDark,
               ),
               tileColor: Colors.black12,
             ),
@@ -54,13 +54,13 @@ class DetailsScreen extends StatelessWidget {
             ),
             ListTile(
               isThreeLine: true,
-              title: const Text(
+              title: Text(
                 "Description :",
-                style: Styles.detailsTitleStyle,
+                style: controller.themeStatus == false ? Styles.detailsTitleStyle : Styles.detailsTitleStyleDark,
               ),
               subtitle: Text(
                 data.description.toString(),
-                style: Styles.detailsDescStyle,
+                style: controller.themeStatus == false ? Styles.detailsDescStyle : Styles.detailsDescStyleDark,
               ),
               tileColor: Colors.black12,
             ),
