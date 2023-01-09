@@ -1,7 +1,6 @@
 // ignore_for_file: unused_field, unused_local_variable, unrelated_type_equality_checks, use_build_context_synchronously, avoid_print
 
 import 'dart:async';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,7 +13,6 @@ import 'package:practice_application/utils/constants/app_constants.dart';
 import 'package:practice_application/utils/constants/styles_constant.dart';
 import 'package:practice_application/utils/helpers.dart';
 import 'package:practice_application/utils/widgets/error404_bottomsheet.dart';
-import 'package:practice_application/utils/widgets/error_bottomsheet.dart';
 import 'package:practice_application/utils/widgets/no_internet_bottomsheet.dart';
 
 import '../main.dart';
