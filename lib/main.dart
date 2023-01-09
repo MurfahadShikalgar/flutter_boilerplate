@@ -14,7 +14,6 @@ import 'package:get/get.dart';
 
 Future<void> main() async {
   await dotenv.load(fileName: AppConstants.envFilePath);
-  Get.changeTheme(ThemeData.dark());
   runApp(const MyApp());
 }
 

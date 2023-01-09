@@ -29,7 +29,7 @@ ShowError404BottomSheet(BuildContext context, Function onReload) {
             Container(
               height: 5,
               width: 35,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(5)),
                 color: Colors.black12
               ),
@@ -69,7 +69,7 @@ ShowError404BottomSheet(BuildContext context, Function onReload) {
             CustomButton(
               height: _helper.getHeight(context) * 0.05,
               width: _helper.getWidth(context) * 0.25,
-              color: Color.fromARGB(255, 16, 181, 181),
+              color: const Color.fromARGB(255, 16, 181, 181),
               text: translation.reload,
               onTap: onReload
             ),

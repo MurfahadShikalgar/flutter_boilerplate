@@ -15,7 +15,7 @@ class ApiService {
         fetchPolicy: FetchPolicy.noCache,
       ),
     )
-    .timeout(Duration(seconds: 6), onTimeout: (() {
+    .timeout(const Duration(seconds: 6), onTimeout: (() {
       print("Session Timeout");
       return QueryResult.unexecuted;
     }));
