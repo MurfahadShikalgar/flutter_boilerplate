@@ -6,7 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 Future<bool?> ShowCustomToast(String msg, Color backgroundColor) {
   return Fluttertoast.showToast(
     msg: msg,
-    toastLength: Toast.LENGTH_SHORT,
+    toastLength: Toast.LENGTH_LONG,
     gravity: ToastGravity.BOTTOM,
     timeInSecForIosWeb: 1,
     backgroundColor: backgroundColor,

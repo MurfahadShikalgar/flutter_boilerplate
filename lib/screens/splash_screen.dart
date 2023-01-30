@@ -5,7 +5,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:practice_application/features/sign_up/presentation/pages/signup_screen.dart';
-import 'package:practice_application/screens/data_screen.dart';
 import 'package:practice_application/utils/constants/color_constants.dart';
 import 'package:practice_application/utils/helpers.dart';
 
@@ -23,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen>
     // ignore: todo
     // TODO: implement initState
     super.initState();
-    Timer(const Duration(seconds: 3), ()=> Get.offAndToNamed(DataScreen.routeName));
+    Timer(const Duration(seconds: 3), ()=> Get.offAndToNamed(SignupScreen.routeName));
   }
 
   late final AnimationController _controller = AnimationController(

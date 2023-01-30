@@ -8,7 +8,7 @@ class TextFieldSignupWidget extends StatelessWidget {
       required this.controller,
       required this.labelText,
       required this.icon,
-      this.obscureText = false, this.textInputType  = TextInputType.name});
+      this.obscureText = false, this.textInputType  = TextInputType.text});
   final TextEditingController controller;
   final String labelText;
   final IconData icon;

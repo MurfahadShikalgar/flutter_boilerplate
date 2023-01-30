@@ -1,7 +1,12 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:practice_application/features/sign_up/domain/use_cases/register_user_domain.dart';
 import 'package:practice_application/features/sign_up/presentation/widgets/constants/helpers.dart';
 import 'package:practice_application/features/sign_up/presentation/widgets/custom_button_signup.dart';
 import 'package:practice_application/features/sign_up/presentation/widgets/textfield_signup_widget.dart';
+import 'package:practice_application/screens/home_screen.dart';
 
 class SignupScreen extends StatelessWidget {
   SignupScreen({super.key});
@@ -59,7 +64,20 @@ class SignupScreen extends StatelessWidget {
                     width: _helpers.getWidth(context) * 0.5,
                     text: "Sign Up",
                     color: const Color.fromARGB(255, 245, 26, 11),
-                    onTap: () {})
+                    onTap: () {
+                      Map body = {
+                        "email": emailController.text,
+                        "password": passwordController.text
+                      };
+                      RegisterUser(body).then((value) {
+                        usernameController.clear();
+                        emailController.clear();
+                        passwordController.clear();
+                        if (value.statusCode == 200) {
+                          Get.offNamed(HomeScreen.routeName);
+                        }
+                      });
+                    })
               ],
             ),
           ),
