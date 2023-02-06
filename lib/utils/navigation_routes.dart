@@ -1,6 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:get/get.dart';
+import 'package:practice_application/features/sign_up/presentation/pages/signup_screen.dart';
 import 'package:practice_application/screens/data_screen.dart';
 import 'package:practice_application/screens/details_screen.dart';
 import 'package:practice_application/screens/home_screen.dart';
@@ -33,5 +34,10 @@ import 'package:practice_application/screens/third_screen.dart';
       name: ThirdScreen.routeName, 
       page: ()=> ThirdScreen(),
     ),
+
+    GetPage(
+      name: SignupScreen.routeName, 
+      page: ()=> SignupScreen(),
+    )
   ];
 

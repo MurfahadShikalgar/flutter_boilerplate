@@ -3,7 +3,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:practice_application/screens/data_screen.dart';
+import 'package:get/get.dart';
+import 'package:practice_application/features/sign_up/presentation/pages/signup_screen.dart';
 import 'package:practice_application/utils/constants/color_constants.dart';
 import 'package:practice_application/utils/helpers.dart';
 
@@ -14,18 +15,16 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> 
-  with TickerProviderStateMixin { 
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
   @override
   void initState() {
     // ignore: todo
     // TODO: implement initState
     super.initState();
-    Timer(
-        const Duration(seconds: 3),
-        () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const DataScreen())));
+    Timer(const Duration(seconds: 3), ()=> Get.offAndToNamed(SignupScreen.routeName));
   }
+
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 3),
     vsync: this,
@@ -59,4 +58,3 @@ class _SplashScreenState extends State<SplashScreen>
     );
   }
 }
-
