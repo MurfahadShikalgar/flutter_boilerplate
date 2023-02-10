@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:practice_application/GraphQl/graphQl_config.dart';
+import 'package:practice_application/utils/network/graphql/graphql_config.dart';
 import 'package:practice_application/screens/splash_screen.dart';
 import 'package:practice_application/utils/constants/app_constants.dart';
 import 'package:practice_application/utils/navigation_routes.dart';

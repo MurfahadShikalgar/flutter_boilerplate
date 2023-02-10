@@ -5,7 +5,7 @@ import 'package:connectivity/connectivity.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-class GetXNetworkManager extends GetxController {
+class NetworkConnectivityController extends GetxController {
   String connectionType = "No Internet";
   final Connectivity _connectivity = Connectivity();
 

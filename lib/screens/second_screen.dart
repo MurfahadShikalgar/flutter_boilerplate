@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:practice_application/screens/third_screen.dart';
-import 'package:practice_application/shared_preference_manager.dart/custom_operations.dart';
-import 'package:practice_application/shared_preference_manager.dart/shared_preference_operations.dart';
+import 'package:practice_application/utils/shared_preference/custom_operations.dart';
+import 'package:practice_application/utils/shared_preference/shared_preference_operations.dart';
 import 'package:practice_application/utils/widgets/textfield_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

@@ -4,20 +4,20 @@ import 'dart:async';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:practice_application/Getx_Manager/api_service_manager.dart';
-import 'package:practice_application/Getx_Manager/getX_state_manager.dart';
-import 'package:practice_application/Getx_Manager/getx_network_manager.dart';
+import 'package:practice_application/getx_manager/api_service_controller.dart';
+import 'package:practice_application/getx_manager/theme_controller.dart';
 import 'package:practice_application/screens/details_screen.dart';
 import 'package:practice_application/screens/home_screen.dart';
 import 'package:practice_application/utils/constants/app_constants.dart';
 import 'package:practice_application/utils/constants/styles_constant.dart';
 import 'package:practice_application/utils/helpers.dart';
+import 'package:practice_application/utils/network/network_connectivity.dart';
 import 'package:practice_application/utils/widgets/error404_bottomsheet.dart';
 import 'package:practice_application/utils/widgets/no_internet_bottomsheet.dart';
 
 import '../main.dart';
-import '../translations/language_constants.dart';
-import '../translations/language_list.dart';
+import '../utils/translations/language_constants.dart';
+import '../utils/translations/language_list.dart';
 
 class DataScreen extends StatefulWidget {
   const DataScreen({super.key});
@@ -39,7 +39,7 @@ class _DataScreenState extends State<DataScreen> {
   }
 
   bool checkConnectivity() {
-    if (_getXNetworkManager.connectionType == AppConstants.noInternet) {
+    if (_connectivityController.connectionType == AppConstants.noInternet) {
       return false;
     } else {
       return true;
@@ -83,7 +83,7 @@ class _DataScreenState extends State<DataScreen> {
   }
 
   final ApiServiceManager _apiController = Get.put(ApiServiceManager());
-  final GetXNetworkManager _getXNetworkManager = Get.put(GetXNetworkManager());
+  final NetworkConnectivityController _connectivityController = Get.put(NetworkConnectivityController());
   final GetxStateManager controller = Get.put(GetxStateManager());
   final Helpers _helpers = Helpers();
 

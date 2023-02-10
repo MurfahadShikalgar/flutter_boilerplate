@@ -1,13 +1,12 @@
 // ignore_for_file: prefer_const_constructors, deprecated_member_use, must_be_immutable, use_build_context_synchronously
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide Trans;
-import 'package:practice_application/Getx_Manager/getX_state_manager.dart';
+import 'package:practice_application/getx_manager/theme_controller.dart';
 import 'package:practice_application/screens/second_screen.dart';
 import 'package:practice_application/utils/helpers.dart';
+import 'package:practice_application/utils/network/network_connectivity.dart';
 import 'package:practice_application/utils/widgets/dialog_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../Getx_Manager/getx_network_manager.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,7 +19,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final GetxStateManager controller = Get.put(GetxStateManager());
-  final GetXNetworkManager _getXNetworkManager = Get.put(GetXNetworkManager());
+  final NetworkConnectivityController _connectivityController = Get.put(NetworkConnectivityController());
   final Helpers _helpers = Helpers();
 
   @override
@@ -42,15 +41,15 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          GetBuilder<GetXNetworkManager>(
+          GetBuilder<NetworkConnectivityController>(
             builder: (_) {
-              return _getXNetworkManager.connectionType == "No Internet"
+              return _connectivityController.connectionType == "No Internet"
                   ? Container(
                       width: _helpers.getWidth(context),
                       color: Colors.red,
                       child: Center(
                         child: Text(
-                          _getXNetworkManager.connectionType,
+                          _connectivityController.connectionType,
                           style: const TextStyle(color: Colors.white),
                         ),
                       ),
