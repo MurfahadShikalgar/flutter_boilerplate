@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import '../utils/network/graphql/api_services.dart';
-import '../utils/network/graphql/modals/all_products_model.dart';
+import '../network/graphql/api_services.dart';
+import '../network/graphql/modals/all_products_model.dart';
 
 class ApiServiceManager extends GetxController {
   List<AllProductData> allProductList = [];

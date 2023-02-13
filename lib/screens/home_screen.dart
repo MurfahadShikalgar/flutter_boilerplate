@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, deprecated_member_use, must_be_immutable, use_build_context_synchronously
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide Trans;
-import 'package:practice_application/getx_manager/theme_controller.dart';
+import 'package:practice_application/utils/getx_manager/theme_controller.dart';
 import 'package:practice_application/screens/second_screen.dart';
 import 'package:practice_application/utils/helpers.dart';
 import 'package:practice_application/utils/network/network_connectivity.dart';
