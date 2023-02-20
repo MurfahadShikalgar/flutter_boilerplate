@@ -5,8 +5,11 @@ import 'package:practice_application/features/sign_up/domain/use_cases/register_
 import 'package:practice_application/features/sign_up/presentation/widgets/constants/helpers.dart';
 import 'package:practice_application/features/sign_up/presentation/widgets/custom_button_signup.dart';
 import 'package:practice_application/features/sign_up/presentation/widgets/textfield_signup_widget.dart';
+import 'package:practice_application/injection_container.dart';
 
 class SignupScreen extends StatelessWidget {
+  final getIns = s1<RegisterUserrr>();
+
   SignupScreen({super.key});
   static const String routeName = "/signupscreen";
   final TextEditingController usernameController = TextEditingController();
@@ -66,11 +69,12 @@ class SignupScreen extends StatelessWidget {
                         "email": emailController.text,
                         "password": passwordController.text
                       };
-                      await RegisterUser().getUserRegister(body).then((value) {
-                        usernameController.clear();
-                        emailController.clear();
-                        passwordController.clear();
-                      });
+                      await getIns.cal(body);
+                      // await RegisterUser().getUserRegister(body).then((value) {
+                      //   usernameController.clear();
+                      //   emailController.clear();
+                      //   passwordController.clear();
+                      // });
                     })
               ],
             ),

@@ -1,30 +1,43 @@
-// ignore_for_file: non_constant_identifier_names, prefer_typing_uninitialized_variables, avoid_print, unused_local_variable, unnecessary_new
+// ignore_for_file: non_constant_identifier_names, prefer_typing_uninitialized_variables, avoid_print, unused_local_variable, unnecessary_new, unnecessary_null_comparison
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:practice_application/core/failure.dart';
-import 'package:practice_application/features/sign_up/data/models/response200_model.dart';
+import 'package:practice_application/core/use_case.dart';
+import 'package:practice_application/features/sign_up/data/models/register_model.dart';
 import 'package:practice_application/features/sign_up/data/repositories/register_repositories.dart';
-import 'package:practice_application/utils/widgets/custom_toast.dart';
 
-class RegisterUser {
+// class RegisterUser {
+//   final RegisterRepository registerRepository;
+
+//   RegisterUser({required this.registerRepository});
+
+//   Future<Either<RegisterModel, Failure>> getUserRegister(Map body) async {
+//     var response = await registerRepository.getRegisterRepo(body);
+//     if (response.isLeft()) {
+//       ShowCustomToast("response 200", Colors.green);
+//       return Left(response as RegisterModel);
+//     } else if (response.isRight()) {
+//       ShowCustomToast("response Failure", Colors.red);
+//       return Right(ServerFailure(""));
+//     } else {
+//       ShowCustomToast("unexpected", Colors.blue);
+//       return Right(ConnectionFailure());
+//     }
+//   }
+// }
+
+class RegisterUserrr implements Usecase<RegisterModel> {
   final RegisterRepository registerRepository;
 
-  RegisterUser(this.registerRepository);
-  
-  getUserRegister(Map body) async {
-    var response = await registerRepository.getRegisterRepo(body);
-    if (response.isLeft()) {
-      ShowCustomToast("response 200", Colors.green);
-      return Left(response as Response200Model);
-    } else if (response.isRight()) {
-      ShowCustomToast("response Failure", Colors.red);
-      return Right(ServerFailure(""));
-    } else {
-      ShowCustomToast("unexpected", Colors.blue);
-      return Right(ConnectionFailure());
-    }
+  RegisterUserrr({required this.registerRepository}) : assert(registerRepository != null);
+
+  @override
+  Future cal(Map body) async {
+    Either<RegisterModel, Failure> hb = await registerRepository.getRegisterRepo(body);
+    return hb;
   }
+  
 }
+
 
 // Future<Response> RegisterUser(Map body) async {
 //   Response response = await RegisterRepository().getRegisterRepo(body);

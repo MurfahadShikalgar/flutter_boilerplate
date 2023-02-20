@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:practice_application/utils/getx_manager/theme_controller.dart';
+import 'package:practice_application/controllers/theme_controller.dart';
 import 'package:practice_application/screens/home_screen.dart';
 import 'package:practice_application/screens/second_screen.dart';
 import 'package:practice_application/utils/shared_preference/custom_operations.dart';

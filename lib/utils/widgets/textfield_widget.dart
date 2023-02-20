@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:practice_application/utils/getx_manager/theme_controller.dart';
+import 'package:practice_application/controllers/theme_controller.dart';
 import 'package:practice_application/utils/constants/styles_constant.dart';
 import 'package:get/get.dart';
 

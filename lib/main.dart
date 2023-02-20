@@ -11,9 +11,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:practice_application/utils/network/network_binding.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
+import 'package:practice_application/injection_container.dart' as di;
 
 Future<void> main() async {
   await dotenv.load(fileName: AppConstants.envFilePath);
+  await di.init();
   runApp(const MyApp());
 }
 
