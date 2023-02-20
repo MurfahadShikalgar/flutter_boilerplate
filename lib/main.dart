@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:practice_application/GraphQl/graphQl_config.dart';
+import 'package:practice_application/utils/network/graphql/graphql_config.dart';
 import 'package:practice_application/screens/splash_screen.dart';
 import 'package:practice_application/utils/constants/app_constants.dart';
 import 'package:practice_application/utils/navigation_routes.dart';
@@ -11,9 +11,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:practice_application/utils/network/network_binding.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
+import 'package:practice_application/injection_container.dart' as di;
 
 Future<void> main() async {
   await dotenv.load(fileName: AppConstants.envFilePath);
+  await di.init();
   runApp(const MyApp());
 }
 

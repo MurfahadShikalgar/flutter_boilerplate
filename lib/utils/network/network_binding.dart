@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:practice_application/Getx_Manager/getx_network_manager.dart';
+import 'package:practice_application/utils/network/network_connectivity.dart';
 
 class NetworkBinding extends Bindings{
 
@@ -8,7 +8,7 @@ class NetworkBinding extends Bindings{
   void dependencies() {
     // ignore: todo
     // TODO: implement dependencies
-    Get.lazyPut<GetXNetworkManager>(() => GetXNetworkManager());
+    Get.lazyPut<NetworkConnectivityController>(() => NetworkConnectivityController());
   }
 
 }

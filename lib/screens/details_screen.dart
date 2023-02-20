@@ -2,10 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:practice_application/Getx_Manager/getX_state_manager.dart';
-import 'package:practice_application/GraphQl/modals/all_products_model.dart';
+import 'package:practice_application/controllers/theme_controller.dart';
 import 'package:practice_application/utils/constants/styles_constant.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../utils/network/graphql/modals/all_products_model.dart';
 
 class DetailsScreen extends StatelessWidget {
   DetailsScreen({super.key});

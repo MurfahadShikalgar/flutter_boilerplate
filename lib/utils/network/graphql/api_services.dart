@@ -2,8 +2,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:practice_application/GraphQl/graphQl_config.dart';
-import 'package:practice_application/GraphQl/queries/query.dart';
+import 'package:practice_application/utils/network/graphql/graphql_config.dart';
+import 'package:practice_application/utils/network/graphql/queries/query.dart';
 
 class ApiService {
   Future<QueryResult<Object?>> fetchAllProductData(BuildContext context) async {

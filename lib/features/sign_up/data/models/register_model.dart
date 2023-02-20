@@ -1,22 +1,22 @@
 // ignore_for_file: prefer_collection_literals
 
-class Response200Model {
-  String? kind;
-  String? idToken;
-  String? email;
-  String? refreshToken;
-  String? expiresIn;
-  String? localId;
+class RegisterModel {
+  late final String kind;
+  late final String idToken;
+  late final String email;
+  late final String refreshToken;
+  late final String expiresIn;
+  late final String localId;
 
-  Response200Model(
-      {this.kind,
-      this.idToken,
-      this.email,
-      this.refreshToken,
-      this.expiresIn,
-      this.localId});
+  RegisterModel(
+      {this.kind = "",
+      this.idToken = "",
+      this.email = "",
+      this.refreshToken = "",
+      this.expiresIn = "",
+      this.localId = ""});
 
-  Response200Model.fromJson(Map<String, dynamic> json) {
+  RegisterModel.fromJson(Map<String, dynamic> json) {
     kind = json['kind'];
     idToken = json['idToken'];
     email = json['email'];

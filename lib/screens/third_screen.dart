@@ -2,14 +2,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:practice_application/Getx_Manager/getX_state_manager.dart';
+import 'package:practice_application/controllers/theme_controller.dart';
 import 'package:practice_application/screens/home_screen.dart';
 import 'package:practice_application/screens/second_screen.dart';
-import 'package:practice_application/shared_preference_manager.dart/custom_operations.dart';
+import 'package:practice_application/utils/shared_preference/custom_operations.dart';
 import 'package:practice_application/utils/widgets/textfield_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import '../shared_preference_manager.dart/shared_preference_operations.dart';
+import '../utils/shared_preference/shared_preference_operations.dart';
 
 class ThirdScreen extends StatelessWidget {
   ThirdScreen({super.key});
